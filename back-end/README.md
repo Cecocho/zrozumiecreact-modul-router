@@ -15,7 +15,7 @@ Możesz również wywołać te same komendy folder wyżej - wtedy uruchomisz jed
 
 Elementy zwracane i zapisywane do serwera mają następujące pola:
 
-```json
+```javascripton
 {
     "id": 1,
     "name": "Folder nr. 1"
@@ -26,7 +26,7 @@ Elementy zwracane i zapisywane do serwera mają następujące pola:
 
 Elementy zwracane i zapisywane do serwera mają następujące pola:
 
-```json
+```javascripton
 {
     "id": 1,
     "title": "Tytuł notatki nr. 1",
@@ -40,7 +40,7 @@ Elementy zwracane i zapisywane do serwera mają następujące pola:
 | ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | /folders            | `GET`    | Pobiera wszystkie foldery                                                                                                      |
 | /folders            | `POST`   | Dodaje nowy folder. Wymagania przesłania body z danymi nowego folderu, np: `{name: 'Nowy folder'}`                             |
-| /notes?folderID=XYZ | `GET`    | Pobiera notatki z folderu o ID `XYZ`                                                                                           |
+| /notes?folderId=XYZ | `GET`    | Pobiera notatki z folderu o ID `XYZ`                                                                                           |
 | /notes              | `POST`   | Dodaje nową notatkę. Wymagania przesłania body z danymi nowej notatki, np: `{title: 'Nowa notatka', body: 'Treść notatki'}`    |
 | /notes/XYZ          | `GET`    | Pobiera notatkę o ID XYZ.                                                                                                      |
 | /notes/XYZ          | `PATCH`  | Aktualizuje notatkę o ID `XYZ`. Wymagania przesłania body nowymi danymi notaki np: `{title: 'Nowy tytuł', body: 'Nowa treść'}` |
@@ -53,7 +53,7 @@ Elementy zwracane i zapisywane do serwera mają następujące pola:
 <br>
 Wywołanie:
 
-```js
+```javascript
     fetch('http://localhost:3000/folders`)
         .then(res => res.json())
         .console.log(res => res.json());
@@ -61,7 +61,7 @@ Wywołanie:
 
 Konsola:
 
-```js
+```javascript
 [
     {
         id: 1,
@@ -80,7 +80,7 @@ Konsola:
 <br>
 Wywołanie:
 
-```js
+```javascript
 fetch("http://localhost:3000/folders", {
     method: "POST",
     headers: {
@@ -94,7 +94,7 @@ fetch("http://localhost:3000/folders", {
 
 Konsola:
 
-```js
+```javascript
 [
     {
         id: 1,
@@ -110,15 +110,15 @@ Konsola:
 <br>
 Wywołanie:
 
-```js
-    fetch('http://localhost:3000/notes?folderId=1`)
-        .then(res => res.json())
-        .console.log(res => res.json());
+```javascript
+fetch('http://localhost:3000/notes?folderId=1`)
+    .then(res => res.json())
+    .console.log(res => res.json());
 ```
 
 Konsola:
 
-```js
+```javascript
 [
     {
         id: 1,
@@ -140,7 +140,7 @@ Konsola:
 <br>
 Wywołanie:
 
-```js
+```javascript
 fetch("http://localhost:3000/notes", {
     method: "POST",
     headers: {
@@ -157,7 +157,7 @@ fetch("http://localhost:3000/notes", {
 
 Konsola:
 
-```js
+```javascript
 {
     "title": "Tytuł nowej notatki",
     "body": "Treść nowej notatki"
@@ -171,7 +171,7 @@ Konsola:
 <br>
 Wywołanie:
 
-```js
+```javascript
 fetch("http://localhost:3000/notes/1")
     .then((res) => res.json())
     .console.log((res) => res.json());
@@ -179,7 +179,7 @@ fetch("http://localhost:3000/notes/1")
 
 Konsola:
 
-```js
+```javascript
 {
     "id": 1,
     "title": "Tytuł notatki nr. 1",
@@ -194,7 +194,7 @@ Konsola:
 <br>
 Wywołanie:
 
-```js
+```javascript
 fetch("http://localhost:3000/notes/1", {
     method: "PATCH",
     headers: {
@@ -211,7 +211,7 @@ fetch("http://localhost:3000/notes/1", {
 
 Konsola:
 
-```js
+```javascript
 {
     "id": 1,
     "title": "Zaktualizowany tytuł",
