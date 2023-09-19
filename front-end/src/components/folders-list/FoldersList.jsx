@@ -40,11 +40,10 @@ const FoldersList = () => {
 
             <Title>Foldery</Title>
             <UserCreatedFolders>
-                {folders.map((folder, idx) => (
-                    <Folder key={idx}>{folder.name}</Folder>
+                {folders.map((folder) => (
+                    <Folder key={folder.id}>{folder.name}</Folder>
                 ))}
             </UserCreatedFolders>
-            {/* <Folder icon="archive">Archiwum</Folder> */}
         </Folders>
     );
 };

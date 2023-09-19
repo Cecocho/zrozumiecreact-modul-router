@@ -31,28 +31,33 @@ const NotesList = () => {
             body: "Osiągnąć sto zwycięstw w stu bitwach nie jest szczytem umiejętności. Szczytem umiejętności jest pokonanie przeciwnika bez walki.",
         },
         {
-            title: "Nowa notatka",
-            body: "Tutaj wpisz treść swojej notatki alasdasdasdasdlaksjd asd ",
+            title: "Lista zakupów na wakacje",
+            body: `
+                Kup ubezpieczenie,
+                Kup bilety,
+                Zarezerwuj hotel
+            `,
             folderId: 1,
             id: 8,
         },
         {
-            title: "Nowa notatka",
-            body: "Tutaj wpisz treść swojej notatki",
+            title: "Lista zakupów",
+            body: `
+                1. Herbata,
+                2. Ziemianki,
+                3. Woda gazowana
+            `,
             folderId: 1,
             id: 10,
         },
         {
-            title: "Nowa notatkaqq",
-            body: "Tutaj wpisz treść swojej notatki",
+            title: "Kurs React - TODO",
+            body: `
+                1. Napisać odcinki
+                2. Nargrać odcinki
+            `,
             folderId: 1,
             id: 15,
-        },
-        {
-            title: "Nowa notatka",
-            body: "Tutaj wpisz treść swojej notatki",
-            folderId: 1,
-            id: 17,
         },
     ]);
 
@@ -73,7 +78,6 @@ const NotesList = () => {
                     ></ShortNote>
                 ))}
             </Notes>
-            <Note />
         </NotesContainer>
     );
 };
