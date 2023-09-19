@@ -40,7 +40,7 @@ Elementy zwracane i zapisywane do serwera mają następujące pola:
 | ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | /folders            | `GET`    | Pobiera wszystkie foldery                                                                                                      |
 | /folders            | `POST`   | Dodaje nowy folder. Wymagania przesłania body z danymi nowego folderu, np: `{name: 'Nowy folder'}`                             |
-| /notes?folderID=XYZ | `GET`    | Pobiera notatki z folderu o ID `XYZ`                                                                                           |
+| /notes?folderId=XYZ | `GET`    | Pobiera notatki z folderu o ID `XYZ`                                                                                           |
 | /notes              | `POST`   | Dodaje nową notatkę. Wymagania przesłania body z danymi nowej notatki, np: `{title: 'Nowa notatka', body: 'Treść notatki'}`    |
 | /notes/XYZ          | `GET`    | Pobiera notatkę o ID XYZ.                                                                                                      |
 | /notes/XYZ          | `PATCH`  | Aktualizuje notatkę o ID `XYZ`. Wymagania przesłania body nowymi danymi notaki np: `{title: 'Nowy tytuł', body: 'Nowa treść'}` |
@@ -54,9 +54,9 @@ Elementy zwracane i zapisywane do serwera mają następujące pola:
 Wywołanie:
 
 ```js
-    fetch('http://localhost:3000/folders`)
-        .then(res => res.json())
-        .console.log(res => res.json());
+fetch('http://localhost:3000/folders`)
+    .then(res => res.json())
+    .console.log(res => res.json());
 ```
 
 Konsola:
