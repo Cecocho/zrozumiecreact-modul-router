@@ -7,11 +7,17 @@
         {
             "name": "Przemyślenia",
             "id": 2
+        },
+        {
+            "name": "Nowy folder",
+            "id": 3
+        },
+        {
+            "name": "Nowy folder 2",
+            "id": 4
         }
     ],
-    "archive": {
-        "folderId": 3
-    },
+    "archive": [],
     "notes": [
         {
             "id": 5,
@@ -42,6 +48,18 @@
             "body": "\n1. Napisać odcinki\n2. Nargrać odcinki",
             "folderId": 1,
             "id": 15
+        },
+        {
+            "title": "Nowa zmieniona notatka",
+            "body": "Tutaj wpisz treść swojej notatki.",
+            "folderId": 3,
+            "id": 16
+        },
+        {
+            "title": "Zmodyfikowany tytuł notatki",
+            "body": "Zmodyfikowana treść notatki!",
+            "folderId": 4,
+            "id": 17
         }
     ]
 }

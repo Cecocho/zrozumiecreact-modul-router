@@ -1,12 +1,14 @@
 import styles from "./Loader.module.css";
-import LoaderImage from "../../assets/loader.gif";
 
-const Loader = () => {
+export function Loader() {
     return (
         <div className={styles.loader}>
-            <img src={LoaderImage}></img>
+            <div className={styles["lds-ring"]}>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
     );
-};
-
-export default Loader;
+}
