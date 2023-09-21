@@ -40,7 +40,7 @@
     font-family: inherit;
 }
 
-.container :global(form) {
+.container .note-editor :global(form) {
     display: flex;
     flex: 1;
     flex-direction: column;
