@@ -21,6 +21,7 @@
     flex: 1;
     flex-direction: column;
     box-sizing: border-box;
+    width: 100%;
 }
 
 .note-editor input {
@@ -40,8 +41,9 @@
     font-family: inherit;
 }
 
-.container .note-editor :global(form) {
+.container :global(form) {
     display: flex;
     flex: 1;
+    align-items: flex-start;
     flex-direction: column;
 }

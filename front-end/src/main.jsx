@@ -7,6 +7,7 @@ import { deleteNote, Note } from "./components/note/Note";
 import { createFolder } from "./components/folders-list/FoldersList";
 import { createNewNote } from "./components/notes-list/NotesList";
 import { updateNote } from "./components/note/Note";
+import { NotFound } from "./components/not-found/NotFound";
 
 const router = createBrowserRouter([
     {
@@ -17,8 +18,13 @@ const router = createBrowserRouter([
             return fetch("http://localhost:3000/folders");
         },
         shouldRevalidate: ({ formAction }) => {
-            return formAction === "/";
+            if (formAction === "/") {
+                return true;
+            } else {
+                return false;
+            }
         },
+        errorElement: <NotFound />,
         children: [
             {
                 path: "notes/:folderId",
@@ -34,13 +40,24 @@ const router = createBrowserRouter([
                         path: `note/:noteId`,
                         element: <Note />,
                         action: updateNote,
-                        loader: ({ params }) => {
-                            return fetch(
+                        errorElement: <NotFound />,
+                        loader: async ({ params }) => {
+                            const result = await fetch(
                                 `http://localhost:3000/notes/${params.noteId}`
                             );
+
+                            if (result.status === 404) {
+                                throw new Error();
+                            }
+
+                            return result.json();
                         },
-                        shouldRevalidate: () => {
-                            return false;
+                        shouldRevalidate: ({ formAction }) => {
+                            if (formAction) {
+                                return false;
+                            } else {
+                                return true;
+                            }
                         },
                         children: [
                             {
