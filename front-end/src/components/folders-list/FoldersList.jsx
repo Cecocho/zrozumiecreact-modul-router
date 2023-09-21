@@ -8,7 +8,6 @@ import { NavLink, useLoaderData, Form } from "react-router-dom";
 export async function createFolder(args) {
     const data = await args.request.formData();
     const folderName = data.get("folder-name");
-    console.log(folderName);
 
     return fetch(`http://localhost:3000/folders`, {
         method: "POST",
