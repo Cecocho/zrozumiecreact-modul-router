@@ -4,7 +4,13 @@ import { AddNewButton } from "../add-new-button/AddNewButton";
 import { TopBar } from "../top-bar/TopBar";
 import { ShortNote } from "../short-note/ShortNote";
 import { Note } from "../note/Note";
-import { useLoaderData, NavLink, Outlet, Form } from "react-router-dom";
+import {
+    useLoaderData,
+    NavLink,
+    Outlet,
+    Form,
+    redirect,
+} from "react-router-dom";
 
 export function createNewNote({ params }) {
     return fetch(`http://localhost:3000/notes`, {
@@ -17,7 +23,13 @@ export function createNewNote({ params }) {
             body: "Tutaj wpisz treść swojej notatki.",
             folderId: Number(params.folderId),
         }),
-    });
+    })
+        .then((response) => {
+            return response.json();
+        })
+        .then((newNote) => {
+            return redirect(`/notes/${newNote.folderId}/note/${newNote.id}`);
+        });
 }
 
 const NotesContainer = ({ children }) => (

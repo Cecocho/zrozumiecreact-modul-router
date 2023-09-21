@@ -1,11 +1,19 @@
 import RemoveIcon from "../../assets/remove.svg";
 import styles from "./Note.module.css";
 import { TopBar } from "../top-bar/TopBar";
-import { useLoaderData, Form, useSubmit } from "react-router-dom";
+import { useLoaderData, Form, useSubmit, redirect } from "react-router-dom";
 
 const NoteEditor = ({ children }) => (
     <div className={styles["note-editor"]}>{children}</div>
 );
+
+export async function deleteNote({ params }) {
+    return fetch(`http://localhost:3000/notes/${params.noteId}`, {
+        method: "DELETE",
+    }).then(() => {
+        return redirect(`/notes/${params.folderId}`);
+    });
+}
 
 export async function updateNote({ request, params }) {
     const data = await request.formData();
@@ -32,9 +40,11 @@ const Note = () => {
     return (
         <div className={styles.container}>
             <TopBar>
-                <button className={styles.button}>
-                    <img className={styles.image} src={RemoveIcon} />
-                </button>
+                <Form method="DELETE" action="delete">
+                    <button className={styles.button}>
+                        <img className={styles.image} src={RemoveIcon} />
+                    </button>
+                </Form>
             </TopBar>
             <Form
                 method="PATCH"
