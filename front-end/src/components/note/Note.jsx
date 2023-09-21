@@ -52,7 +52,7 @@ const Note = () => {
                     submit(event.currentTarget);
                 }}
             >
-                <NoteEditor>
+                <NoteEdito key={note.id}r>
                     <input type="text" defaultValue={note.title} name="title" />
                     <textarea defaultValue={note.body} name="body" />
                 </NoteEditor>

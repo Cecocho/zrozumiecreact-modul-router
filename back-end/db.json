@@ -25,7 +25,7 @@
       "id": 5,
       "folderId": 2,
       "title": "Albert Einstein",
-      "body": "Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning."
+      "body": "Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning"
     },
     {
       "id": 7,
@@ -35,7 +35,7 @@
     },
     {
       "title": "Lista zakupów na wakacje",
-      "body": "\nKup ubezpieczenie,\nKup bilety,\nZarezerwuj hotel\n",
+      "body": "\nKup ubezpieczenie,\nKup bilety,\n",
       "folderId": 1,
       "id": 8
     },

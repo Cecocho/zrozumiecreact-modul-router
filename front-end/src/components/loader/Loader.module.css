@@ -9,4 +9,5 @@
 
     opacity: 0.5;
     background-color: white;
+    z-index: 1;
 }
