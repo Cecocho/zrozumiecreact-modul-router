@@ -16,6 +16,9 @@ const router = createBrowserRouter([
         loader: () => {
             return fetch("http://localhost:3000/folders");
         },
+        shouldRevalidate: ({ formAction }) => {
+            return formAction === "/";
+        },
         children: [
             {
                 path: "notes/:folderId",
@@ -35,6 +38,9 @@ const router = createBrowserRouter([
                             return fetch(
                                 `http://localhost:3000/notes/${params.noteId}`
                             );
+                        },
+                        shouldRevalidate: () => {
+                            return false;
                         },
                     },
                 ],
