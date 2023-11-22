@@ -9,7 +9,7 @@ import {
     NavLink,
     Outlet,
     Form,
-    redirect,
+    useLocation,
 } from "react-router-dom";
 
 export function createNewNote({ params }) {
@@ -23,13 +23,7 @@ export function createNewNote({ params }) {
             body: "Tutaj wpisz treść swojej notatki.",
             folderId: Number(params.folderId),
         }),
-    })
-        .then((response) => {
-            return response.json();
-        })
-        .then((newNote) => {
-            return redirect(`/notes/${newNote.folderId}/note/${newNote.id}`);
-        });
+    });
 }
 
 const NotesContainer = ({ children }) => (
@@ -44,6 +38,7 @@ const Notes = ({ children }) => (
 
 const NotesList = () => {
     const notes = useLoaderData();
+    const location = useLocation();
 
     return (
         <NotesContainer>
@@ -58,7 +53,11 @@ const NotesList = () => {
                 {notes.map((note) => (
                     <NavLink
                         key={note.id}
-                        to={`/notes/${note.folderId}/note/${note.id}`}
+                        to={
+                            location.pathname === "/archive"
+                                ? `/archive/${note.id}`
+                                : `/notes/${note.folderId}/note/${note.id}`
+                        }
                     >
                         {({ isActive }) => (
                             <ShortNote
