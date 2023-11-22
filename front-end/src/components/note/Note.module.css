@@ -47,3 +47,7 @@
     align-items: flex-start;
     flex-direction: column;
 }
+
+.align-right {
+    align-self: flex-end;
+}
