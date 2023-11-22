@@ -41,8 +41,10 @@ const Note = () => {
 
     const onChangeCallback = useCallback(
         debounce((event) => {
-            submit(event.currentTarget, { method: "PATCH" });
-        }, 300)
+            const form = event.target.closest("form");
+            submit(form, { method: "PATCH" });
+        }, 300),
+        [debounce, submit]
     );
 
     return (
